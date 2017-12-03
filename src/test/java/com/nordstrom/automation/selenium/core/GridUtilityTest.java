@@ -7,7 +7,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.net.UnknownHostException;
-import org.openqa.grid.internal.utils.GridHubConfiguration;
+
+import org.openqa.grid.internal.utils.configuration.GridHubConfiguration;
 import org.openqa.selenium.net.UrlChecker.TimeoutException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

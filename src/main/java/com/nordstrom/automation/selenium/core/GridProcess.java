@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.openqa.grid.selenium.GridLauncher;
+import org.openqa.grid.selenium.GridLauncherV3;
 
 import com.nordstrom.automation.selenium.exceptions.GridServerLaunchFailedException;
 import com.nordstrom.common.file.PathUtils;
@@ -31,7 +31,7 @@ import com.nordstrom.common.file.PathUtils;
 final class GridProcess {
     
     private static final String OPT_ROLE = "-role";
-    private static final Class<?>[] dependencies = { GridLauncher.class };
+    private static final Class<?>[] dependencies = { GridLauncherV3.class };
     private static final String LOGS_PATH = "logs";
     
     private GridProcess() {
@@ -51,7 +51,7 @@ final class GridProcess {
         int optIndex = argsList.indexOf(OPT_ROLE);
         String gridRole = args[optIndex + 1];
         
-        argsList.add(0, GridLauncher.class.getName());
+        argsList.add(0, GridLauncherV3.class.getName());
         argsList.add(0, getClasspath(dependencies));
         argsList.add(0, "-cp");
         argsList.add(0, System.getProperty("java.home") + File.separator + "bin" + File.separator + "java");

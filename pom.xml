@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nordstrom.ui-tools</groupId>
-  <artifactId>selenium-foundation</artifactId>
-  <version>14.1.3-SNAPSHOT</version>
+  <artifactId>selenium3-foundation</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   
-  <name>Selenium Foundation</name>
-  <description>Selenium Foundation is an automation framework designed to extend and enhance the capabilities provided by Selenium 2.0 (WebDriver).</description>
-  <url>https://github.com/Nordstrom/Selenium-Foundation</url>
+  <name>Selenium3 Foundation</name>
+  <description>Selenium3 Foundation is an automation framework designed to extend and enhance the capabilities provided by Selenium 3.0 (WebDriver).</description>
+  <url>https://github.com/Nordstrom/Selenium3-Foundation</url>
   
   <licenses>
     <license>
@@ -33,7 +33,7 @@
     <source-plugin.version>3.0.1</source-plugin.version>
     <javadoc-plugin.version>2.10.4</javadoc-plugin.version>
     <settings.version>2.0.7</settings.version>
-    <selenium.version>2.53.0</selenium.version>
+    <selenium.version>3.8.0</selenium.version>
     <testng-foundation.version>1.5.1</testng-foundation.version>
     <junit-foundation.version>3.1.1</junit-foundation.version>
     <resteasy.version>3.1.2.Final</resteasy.version>
@@ -49,9 +49,9 @@
   </properties>
   
   <scm>
-    <connection>scm:git:https://github.com/Nordstrom/Selenium-Foundation.git</connection>
-    <developerConnection>scm:git:https://github.com/Nordstrom/Selenium-Foundation.git</developerConnection>
-    <url>https://github.com/Nordstrom/Selenium-Foundation/tree/master</url>
+    <connection>scm:git:https://github.com/Nordstrom/Selenium3-Foundation.git</connection>
+    <developerConnection>scm:git:https://github.com/Nordstrom/Selenium3-Foundation.git</developerConnection>
+    <url>https://github.com/Nordstrom/Selenium3-Foundation/tree/master</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -137,6 +137,12 @@
     <dependency>
       <groupId>com.nordstrom.tools</groupId>
       <artifactId>testng-foundation</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.nordstrom.tools</groupId>
