@@ -1,4 +1,7 @@
 {
+  "acceptInsecureCerts": true,
   "browserName": "firefox",
-  "marionette": false
+  "firefoxOptions": {
+    "args": [ "-headless" ]
+  }
 }
