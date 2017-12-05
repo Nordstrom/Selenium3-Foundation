@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.grid.selenium.GridLauncherV3;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import com.nordstrom.automation.selenium.exceptions.GridServerLaunchFailedException;
 import com.nordstrom.common.file.PathUtils;
@@ -31,7 +32,7 @@ import com.nordstrom.common.file.PathUtils;
 final class GridProcess {
     
     private static final String OPT_ROLE = "-role";
-    private static final Class<?>[] dependencies = { GridLauncherV3.class };
+    private static final Class<?>[] dependencies = { GridLauncherV3.class, PhantomJSDriver.class };
     private static final String LOGS_PATH = "logs";
     
     private GridProcess() {
