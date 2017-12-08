@@ -6,7 +6,7 @@
 
 > **NOTE**: If you're using with Selenium 2, the [Selenium Foundation](https://github.com/Nordstrom/Selenium-Foundation) project is for you.
 
-The [QuickStart](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/QuickStart.java) class provides a fully-functional example of a test class built around **Selenium3 Foundation**, **TestNG Foundation**, and the **Settings API**. It demonstrates how to set up required elements and introduces several key features that you're likely to use on a regular basis. 
+The [QuickStart](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/QuickStart.java) class provides a fully-functional example of a test class built around **Selenium3 Foundation**, [TestNG Foundation](https://github.com/Nordstrom/TestNG-Foundation), and the [Settings API](https://github.com/Nordstrom/Settings). It demonstrates how to set up required elements and introduces several key features that you're likely to use on a regular basis. 
 
 ## HIGHLIGHTS
 
