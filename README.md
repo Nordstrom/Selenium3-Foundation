@@ -6,47 +6,47 @@
 
 > **NOTE**: If you're using with Selenium 2, the [Selenium Foundation](https://github.com/Nordstrom/Selenium-Foundation) project is for you.
 
-The [QuickStart](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/QuickStart.java) class provides a fully-functional example of a test class built around **Selenium Foundation**, **TestNG Foundation**, and the **Settings API**. It demonstrates how to set up required elements and introduces several key features that you're likely to use on a regular basis. 
+The [QuickStart](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/QuickStart.java) class provides a fully-functional example of a test class built around **Selenium3 Foundation**, **TestNG Foundation**, and the **Settings API**. It demonstrates how to set up required elements and introduces several key features that you're likely to use on a regular basis. 
 
 ## HIGHLIGHTS
 
-**Selenium Foundation** provides a complete set of base classes for building well-factored page models. This includes page components and frames. **Selenium Foundation** allows you to focus on modeling your application (instead of managing which window or frame the driver is addressing) by handling all driver targeting for you. You'll never see `driver.switchTo(...)` in page model automation built with **Selenium Foundation**, because the framework automatically ensures that the driver is addressing the window or frame associated with each page model method before it's invoked.
+**Selenium3 Foundation** provides a complete set of base classes for building well-factored page models. This includes page components and frames. **Selenium3 Foundation** allows you to focus on modeling your application (instead of managing which window or frame the driver is addressing) by handling all driver targeting for you. You'll never see `driver.switchTo(...)` in page model automation built with **Selenium3 Foundation**, because the framework automatically ensures that the driver is addressing the window or frame associated with each page model method before it's invoked.
 
-Page classes can be explicitly associated with web application paths through the **`@PageUrl`** annotation. These associations can be declared as either fixed paths or patterns, and these declarations are used by **Selenium Foundation** to verify landing page paths at page transitions. You can also perform direct navigation to web application paths associated with page classes through the **`@PageUrl`** annotation.
+Page classes can be explicitly associated with web application paths through the **`@PageUrl`** annotation. These associations can be declared as either fixed paths or patterns, and these declarations are used by **Selenium3 Foundation** to verify landing page paths at page transitions. You can also perform direct navigation to web application paths associated with page classes through the **`@PageUrl`** annotation.
 
-**Selenium Foundation** also includes collection classes (**ComponentList**, **ComponentMap**, **FrameList**, and **FrameMap**) that enable you to define collections of components for your page models. For example, you can define a **SearchResultTile** component and include a map of these tiles keyed by product ID in your **SearchResultsPage** class. **Selenium Foundation** collections are lazy-initialized automatically - the composition of the collection is determined when it's instantiated, but each item in the collection is only populated when it's explicitly referenced.
+**Selenium3 Foundation** also includes collection classes (**ComponentList**, **ComponentMap**, **FrameList**, and **FrameMap**) that enable you to define collections of components for your page models. For example, you can define a **SearchResultTile** component and include a map of these tiles keyed by product ID in your **SearchResultsPage** class. **Selenium3 Foundation** collections are lazy-initialized automatically - the composition of the collection is determined when it's instantiated, but each item in the collection is only populated when it's explicitly referenced.
 
-One of the most impactful features of **Selenium Foundation** saves your automation from the dreaded **StaleElementReferenceException** failure. Web element search operations performed within the **Selenium Foundation** framework return enhanced references, which retain all of the parameters needed to re-acquire the reference if it goes stale. Every web element method call is guarded by an automatic recovery feature. If a reference goes stale, **Selenium Foundation** re-acquires the reference and re-issues the web element method call that encountered the exception. Your automation continues on normally, blissfully unaware of the disaster that was averted.
+One of the most impactful features of **Selenium3 Foundation** saves your automation from the dreaded **StaleElementReferenceException** failure. Web element search operations performed within the **Selenium3 Foundation** framework return enhanced references, which retain all of the parameters needed to re-acquire the reference if it goes stale. Every web element method call is guarded by an automatic recovery feature. If a reference goes stale, **Selenium3 Foundation** re-acquires the reference and re-issues the web element method call that encountered the exception. Your automation continues on normally, blissfully unaware of the disaster that was averted.
 
-Another useful extension provided by **Selenium Foundation** is the optional element. This feature enables you to model elements that only exist on the page under specific conditions. For example, you can model an error message that only exists when a form is submitted with no value in a required field. Determining if the element exists is as easy as calling the `hasReference()` method of the optional element object.
+Another useful extension provided by **Selenium3 Foundation** is the optional element. This feature enables you to model elements that only exist on the page under specific conditions. For example, you can model an error message that only exists when a form is submitted with no value in a required field. Determining if the element exists is as easy as calling the `hasReference()` method of the optional element object.
 
-**Selenium Foundation** automatically synchronizes your automation with ordinary page transitions, ensuring that tests don't get tripped up by application hesitation. Synchronizing your automation with dynamic content creation is easily done by implementing a simple interface (**DetectsLoadCompletion**). This greatly simplifies the modeling of single-page applications and pages rendered with dynamic content loading.
+**Selenium3 Foundation** automatically synchronizes your automation with ordinary page transitions, ensuring that tests don't get tripped up by application hesitation. Synchronizing your automation with dynamic content creation is easily done by implementing a simple interface (**DetectsLoadCompletion**). This greatly simplifies the modeling of single-page applications and pages rendered with dynamic content loading.
 
-To avoid divergent behavior between local and remote execution, **Selenium Foundation** acquires driver sessions for local runs from a local instance of **Selenium Grid**. In addition to eliminating ordinary behavioral differences, this strategy provides two major benefits:
+To avoid divergent behavior between local and remote execution, **Selenium3 Foundation** acquires driver sessions for local runs from a local instance of **Selenium Grid**. In addition to eliminating ordinary behavioral differences, this strategy provides two major benefits:
 
 1. Adding support for a new driver is a simple configuration change - No need to crack open the code!
 2. You get explicit control over the maximum number of concurrent sessions, so you can run your tests in parallel without over-taxing your system.
 
 Drivers allocated for per-test configuration setup methods (i.e. - **`@BeforeMethod`**) are automatically handed off to the tests for which configuration is being performed. Drivers allocated for tests are automatically handed off to per-test configuration cleanup methods (i.e. - **`@AfterMethod`**).  This hand-off behavior greatly simplifies the implementation of generic setup and cleanup processing that interacts with your application under test.
 
-To assist in root-cause analysis, **Selenium Foundation** automatically captures a screenshot and page source for each failed test. By using the **ReporterAppender**, the log output of each **TestNG** test is captured as part of the test result object. This information is automatically shown on test result pages in **Jenkins**. No more digging through intermingled output in console logs!
+To assist in root-cause analysis, **Selenium3 Foundation** automatically captures a screenshot and page source for each failed test. By using the **ReporterAppender**, the log output of each **TestNG** test is captured as part of the test result object. This information is automatically shown on test result pages in **Jenkins**. No more digging through intermingled output in console logs!
 
-**Selenium Foundation** includes support for both **TestNG** and **JUnit**. Feature parity is enabled by several core abstractions, and through features provided by the **TestNG Foundation** and **JUnit Foundation** libraries.
+**Selenium3 Foundation** includes support for both **TestNG** and **JUnit**. Feature parity is enabled by several core abstractions, and through features provided by the **TestNG Foundation** and **JUnit Foundation** libraries.
 
 ## TESTNG REQUIRED ELEMENTS
 
-There are several required elements that must be included in every TestNG test class to activate the features of **Selenium Foundation**. To assist you in this process, we've included the [TestNgBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/support/TestNgBase.java) class as a starter. This class includes all of the required elements outlined below, and adds the [ScreenshotCapture](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/listeners/ScreenshotCapture.java) listener.
+There are several required elements that must be included in every TestNG test class to activate the features of **Selenium3 Foundation**. To assist you in this process, we've included the [TestNgBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/support/TestNgBase.java) class as a starter. This class includes all of the required elements outlined below, and adds the [ScreenshotCapture](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/listeners/ScreenshotCapture.java) listener.
 
 **TestNgBase** is an abstract class that implements the [TestBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/core/TestBase.java) interface, which provides a common abstraction for both TestNG and JUnit tests.
 
 ### Outline of Required Elements
 
-The following is an outline of the elements that must be included in every TestNG test that uses **Selenium Foundation**:
+The following is an outline of the elements that must be included in every TestNG test that uses **Selenium3 Foundation**:
 
 * [ListenerChain](https://github.com/Nordstrom/TestNG-Foundation/blob/master/src/main/java/com/nordstrom/automation/testng/ListenerChain.java):  
 **ListenerChain** is a TestNG listener that enables you to add other listeners at runtime and guarantees the order in which they're invoked. This is similar in behavior to a JUnit rule chain.
 * The [@LinkedListeners](https://github.com/Nordstrom/TestNG-Foundation/blob/master/src/main/java/com/nordstrom/automation/testng/LinkedListeners.java) annotation:  
- To attach listeners to an active **ListenerChain**, mark your test class with the **`@LinkedListeners`** annotation. The [TestNgBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/support/TestNgBase.java) class is marked with a **`@LinkedListeners`** annotation that specifies three listeners that manage several core features of **Selenium Foundation**:
+ To attach listeners to an active **ListenerChain**, mark your test class with the **`@LinkedListeners`** annotation. The [TestNgBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/support/TestNgBase.java) class is marked with a **`@LinkedListeners`** annotation that specifies three listeners that manage several core features of **Selenium3 Foundation**:
   * [ScreenshotCapture](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/listeners/ScreenshotCapture.java):  
 **ScreenshotCapture** is a TestNG listener that automatically captures screenshots in the event of test failures. Tests are also able to request on-demand screenshot capture through the `captureArtifact(ITestResult)` method.
   * [DriverListener](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/listeners/DriverListener.java):  
@@ -55,11 +55,11 @@ The following is an outline of the elements that must be included in every TestN
 **ExecutionFlowController** is a TestNG listener that propagates test context attributes:  
  [_before_ method] → [test method] → [_after_ method]
 
-The **`@LinkedListeners`** annotation is processed by the **ListenerChain**, which must be activated so that the other core listeners will be connected and functioning correctly. Although you can use the standard TestNG **`@Listeners`** annotation to activate **ListenerChain**, we recommend that you use the **ServiceLoader** mechanism for this purpose in your actual project. This is the technique employed by the test suite of the **Selenium Foundation** project. For details, see [Selenium Foundation Test Support](docs/SeleniumFoundationTestSupport.md).
+The **`@LinkedListeners`** annotation is processed by the **ListenerChain**, which must be activated so that the other core listeners will be connected and functioning correctly. Although you can use the standard TestNG **`@Listeners`** annotation to activate **ListenerChain**, we recommend that you use the **ServiceLoader** mechanism for this purpose in your actual project. This is the technique employed by the test suite of the **Selenium3 Foundation** project. For details, see [Selenium Foundation Test Support](docs/SeleniumFoundationTestSupport.md).
 
 ## DEMONSTRATED FEATURES
 
-The **QuickStart** class demonstrates several important **Selenium Foundation** features:
+The **QuickStart** class demonstrates several important **Selenium3 Foundation** features:
 
 * [InitialPage](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/annotations/InitialPage.java):  
 **InitialPage** is a Java annotation that enables you to specify the initial page class and/or URL that should be loaded at the start of the test method. This can be applied to each test individually, or it can be applied at the class level to specify the default page for all tests in the class. It can also be applied to **`@Before...`** configuration methods to provide driver sessions opened to the desired page.
@@ -68,7 +68,7 @@ The **QuickStart** class demonstrates several important **Selenium Foundation** 
 * [SeleniumSettings](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/SeleniumConfig.java):  
 **SeleniumSettings** declares the constants, property names, and default values for the settings managed by SeleniumConfig. Defaults can be overridden via System properties or the _settings.propeties_ file in your user "home" directory. See **ESSENTIAL SETTINGS** below for more details.
 * [ReporterAppender](https://github.com/sbabcoc/logback-testng/blob/master/src/main/java/com/github/sbabcoc/logback/testng/ReporterAppender.java):  
-**ReporterAppender** is a **Logback** appender for TestNG Reporter. The **Selenium Foundation** project ships with a _logback.xml_ file that attaches this appender. See the complete **logback-testng** information page [here](https://github.com/sbabcoc/logback-testng).
+**ReporterAppender** is a **Logback** appender for TestNG Reporter. The **Selenium3 Foundation** project ships with a _logback.xml_ file that attaches this appender. See the complete **logback-testng** information page [here](https://github.com/sbabcoc/logback-testng).
 * **`TestBase.optionalOf(Object)`**:  
 This static utility method wraps the specified object in an [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) object. If the object to be wrapped is 'null', this method returns an empty optional.
 
@@ -157,7 +157,7 @@ The hierarchy of evaluation produces the following results:
 
 ## INSTALLING DRIVERS 
 
-Whichever browser you choose to run your automation on, you need to make sure to install the latest driver for that browser compatible with **Selenium WebDriver 2.53.1**, along with a compatible release of the browser itself. We recommend that you install the drivers and browsers on the file search path to avoid the need to provide additional configuration details via scenario-specific means. 
+Whichever browser you choose to run your automation on, you need to make sure to install the latest driver for that browser compatible with **Selenium WebDriver 3.8.1**, along with a compatible release of the browser itself. We recommend that you install the drivers and browsers on the file search path to avoid the need to provide additional configuration details via scenario-specific means. 
 
 Here are the official homes for several of the major drivers: 
 
@@ -169,17 +169,17 @@ Here are the official homes for several of the major drivers:
 
 # JUNIT SUPPORT
 
-In addition to the TestNG support documented above, **Selenium Foundation** also includes support for JUnit. This support is built upon **JUnit Foundation**, which provides the framework for method interception (used for driver management) and artifact capture (used to acquire screenshots).
+In addition to the TestNG support documented above, **Selenium3 Foundation** also includes support for JUnit. This support is built upon **JUnit Foundation**, which provides the framework for method interception (used for driver management) and artifact capture (used to acquire screenshots).
 
 ## JUnit Required Elements
 
-There are several required elements that must be included in every JUnit test class to activate the features of **Selenium Foundation**. To assist you in this process, we've included the [JUnitBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/junit/JUnitBase.java) class as a starter. This class includes all of the required elements outlined below.
+There are several required elements that must be included in every JUnit test class to activate the features of **Selenium3 Foundation**. To assist you in this process, we've included the [JUnitBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/junit/JUnitBase.java) class as a starter. This class includes all of the required elements outlined below.
 
 **JUnitBase** is an abstract class that implements the [TestBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/core/TestBase.java) interface, which provides a common abstraction for both TestNG and JUnit tests.
 
 ### Outline of Required Elements
 
-The following is an outline of the elements that must be included in every JUnit test that uses **Selenium Foundation**:
+The following is an outline of the elements that must be included in every JUnit test that uses **Selenium3 Foundation**:
 
 * [HookInstallingRunner](https://github.com/Nordstrom/JUnit-Foundation/blob/master/src/main/java/com/nordstrom/automation/junit/HookInstallingRunner.java):  
 **HookInstallingRunner** is a JUnit test runner that uses bytecode enhancement to install hooks on test and configuration methods to enable method pre-processing and post-processing. This closely resembles the **IInvokedMethodListener** feature of TestNG.
@@ -192,7 +192,7 @@ The **MethodWatchers** annotation is assigned to test classes and enables you to
   * **`DriverWatcher.getTestWatcher()`**:  
   The test rule returned by this static method is responsible for closing the driver attached to the current test method.
 * [RuleChain](http://junit.org/junit4/javadoc/latest/org/junit/rules/RuleChain.html):  
- Use **RuleChain** for attaching test rules that must be applied in a specific order. The [JUnitBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/junit/JUnitBase.java) class includes a **RuleChain** that specifies two watchers that manage core features of **Selenium Foundation**:
+ Use **RuleChain** for attaching test rules that must be applied in a specific order. The [JUnitBase](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/junit/JUnitBase.java) class includes a **RuleChain** that specifies two watchers that manage core features of **Selenium3 Foundation**:
   * [ScreenshotCapture](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/junit/ScreenshotCapture.java):  
   **ScreenshotCapture** is a JUnit test watcher that automatically captures a screenshot in the event of test failure.
   * [DriverWatcher](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/main/java/com/nordstrom/automation/selenium/junit/DriverWatcher.java):  
@@ -200,7 +200,7 @@ The **MethodWatchers** annotation is assigned to test classes and enables you to
 
 ### DEMONSTRATED FEATURES
 
-The **JUnitBase** class demonstrates several features of the **Selenium Foundation** API:
+The **JUnitBase** class demonstrates several features of the **Selenium3 Foundation** API:
 
 * **`TestBase.optionalOf(Object)`**:  
 This static utility method wraps the specified object in an [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) object. If the object to be wrapped is 'null', this method returns an empty optional.
@@ -211,4 +211,4 @@ This instance method of **ScreenshotCapture** enables test code to acquire the [
 
 # FEATURE PARITY
 
-All of the feature of **Selenium Foundation** are available regardless of which testing framework you choose - either TestNG or JUnit. Once the initial configuration is done, the abstraction provided by the **TestBase** interface enables your code to be almost entirely framework-agnostic. This is clearly demonstrated in [ModelTestCore](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/core/ModelTestCore.java), which contains the implementations for a collection of tests that are invoked from both TestNG (via [ModelTest](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/model/ModelTest.java)) and JUnit (via [JUnitModelTest](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/junit/JUnitModelTest.java)).
+All of the feature of **Selenium3 Foundation** are available regardless of which testing framework you choose - either TestNG or JUnit. Once the initial configuration is done, the abstraction provided by the **TestBase** interface enables your code to be almost entirely framework-agnostic. This is clearly demonstrated in [ModelTestCore](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/core/ModelTestCore.java), which contains the implementations for a collection of tests that are invoked from both TestNG (via [ModelTest](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/model/ModelTest.java)) and JUnit (via [JUnitModelTest](https://github.com/Nordstrom/Selenium-Foundation/tree/master/src/test/java/com/nordstrom/automation/selenium/junit/JUnitModelTest.java)).
