@@ -1,7 +1,0 @@
-{
-  "acceptInsecureCerts": true,
-  "browserName": "firefox",
-  "firefoxOptions": {
-    "args": [ "-headless" ]
-  }
-}
